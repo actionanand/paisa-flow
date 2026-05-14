@@ -1,0 +1,62 @@
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__header {
+    text-align: center;
+    h1 {
+      color: #fff;
+      font-size: 2rem;
+      margin: 0;
+    }
+  }
+
+  &__tagline {
+    color: #e74c3c;
+    font-size: 1rem;
+    margin: 4px 0 0;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 20px;
+}
+
+.month-summaries {
+  h2 {
+    color: #fff;
+    margin: 0 0 16px;
+  }
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+section h2 {
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+@media (max-width: 600px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  .month-grid {
+    grid-template-columns: 1fr;
+  }
+}

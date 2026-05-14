@@ -1,0 +1,80 @@
+<div class="dashboard">
+  <header class="dashboard__header">
+    <h1>💸 PaisaFlow — Expense Tracker</h1>
+    <p class="dashboard__tagline">Every rupee counts. Stop the leak!</p>
+  </header>
+
+  <!-- Money going to trash animation -->
+  <app-money-trash />
+
+  <!-- Waste Warning Banner -->
+  <app-waste-warning
+    [smallTotal]="svc.smallExpenseTotal()"
+    [smallCount]="svc.smallExpenses().length"
+    [grandTotal]="svc.grandTotal()"
+  />
+
+  <!-- Stat Cards -->
+  <section class="stats-grid" aria-label="Expense statistics">
+    <app-stat-card
+      label="Total Spent"
+      [value]="svc.grandTotal()"
+      icon="🔥"
+      variant="danger"
+      [subtitle]="svc.allExpenses().length + ' transactions'"
+    />
+    <app-stat-card
+      label="Small Spends (≤₹100)"
+      [value]="svc.smallExpenseTotal()"
+      icon="💀"
+      variant="warning"
+      [subtitle]="svc.smallExpenses().length + ' tiny transactions wasted'"
+    />
+    @if (svc.monthlyGroups().length > 0) {
+      <app-stat-card
+        label="This Month"
+        [value]="svc.monthlyGroups()[0].total"
+        icon="📅"
+        variant="info"
+        [subtitle]="svc.monthlyGroups()[0].label"
+      />
+    }
+    @if (svc.monthlyGroups().length > 1) {
+      <app-stat-card
+        label="Last Month"
+        [value]="svc.monthlyGroups()[1].total"
+        icon="📊"
+        [subtitle]="svc.monthlyGroups()[1].label"
+      />
+    }
+  </section>
+
+  <!-- Charts -->
+  <section class="charts-grid" aria-label="Expense charts">
+    <app-monthly-bar-chart [monthlyGroups]="svc.monthlyGroups()" />
+    <app-category-pie-chart [categoryTotals]="svc.categoryTotals()" title="Overall Category Breakdown" />
+    <app-cumulative-chart [cumulativeData]="svc.cumulativeByMonth()" />
+    @if (svc.monthlyGroups().length > 0) {
+      <app-category-pie-chart
+        [categoryTotals]="svc.monthlyGroups()[0].categoryBreakdown"
+        [title]="svc.monthlyGroups()[0].label + ' Category Breakdown'"
+      />
+    }
+  </section>
+
+  <!-- Monthly Summaries -->
+  <section class="month-summaries" aria-label="Monthly summaries">
+    <h2>Monthly Breakdown</h2>
+    <div class="month-grid">
+      @for (group of svc.monthlyGroups(); track group.month) {
+        <app-month-summary [group]="group" />
+      }
+    </div>
+  </section>
+
+  <!-- Expense Table -->
+  <section aria-label="All expenses">
+    <h2>All Transactions</h2>
+    <app-expense-table [expenses]="svc.allExpenses()" />
+  </section>
+</div>
