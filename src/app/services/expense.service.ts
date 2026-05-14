@@ -11,7 +11,7 @@ export class ExpenseService {
   readonly error = signal<string | null>(null);
 
   constructor() {
-    this.http.get<Expense[]>('/expenses.json').subscribe({
+    this.http.get<Expense[]>('expenses.json').subscribe({
       next: (data) => {
         // Sort newest date first so monthly groups are always in order
         const sorted = [...data].sort(
