@@ -34,22 +34,94 @@
   gap: 20px;
 }
 
-.month-summaries {
-  h2 {
-    color: #fff;
-    margin: 0 0 16px;
-  }
-}
-
 .month-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 16px;
+  padding: 16px 0 4px;
 }
 
 section h2 {
   color: #fff;
   margin: 0 0 16px;
+}
+
+/* Collapsible Monthly Breakdown */
+.collapsible-section {
+  border: 1px solid #333;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.collapsible-header {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 24px;
+  background: #1e1e2e;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background 0.15s;
+  &:hover { background: #25253a; }
+  &:focus-visible { outline: 2px solid #3498db; outline-offset: -2px; }
+}
+
+.chevron {
+  font-size: 1.4rem;
+  color: #3498db;
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+  &.open { transform: rotate(90deg); }
+}
+
+.collapsible-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: #16161e;
+  padding: 0 24px;
+
+  &.expanded {
+    max-height: 9999px;
+    padding: 0 24px 16px;
+  }
+}
+
+/* Loading & error states */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 64px 0;
+  color: #888;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #333;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-state {
+  background: #2d1a1a;
+  border: 1px solid #e74c3c;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  color: #e74c3c;
 }
 
 @media (max-width: 600px) {
@@ -60,3 +132,4 @@ section h2 {
     grid-template-columns: 1fr;
   }
 }
+

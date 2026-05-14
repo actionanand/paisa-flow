@@ -1,10 +1,31 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Expense, MonthlyGroup } from '../models/expense.model';
-import expensesData from '../data/expenses.json';
 
 @Injectable({ providedIn: 'root' })
 export class ExpenseService {
-  private readonly expenses = signal<Expense[]>(expensesData as Expense[]);
+  private readonly http = inject(HttpClient);
+
+  private readonly expenses = signal<Expense[]>([]);
+  readonly loading = signal(true);
+  readonly error = signal<string | null>(null);
+
+  constructor() {
+    this.http.get<Expense[]>('/expenses.json').subscribe({
+      next: (data) => {
+        // Sort newest date first so monthly groups are always in order
+        const sorted = [...data].sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+        this.expenses.set(sorted);
+        this.loading.set(false);
+      },
+      error: () => {
+        this.error.set('Failed to load expenses.');
+        this.loading.set(false);
+      },
+    });
+  }
 
   readonly allExpenses = this.expenses.asReadonly();
 

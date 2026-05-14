@@ -1,5 +1,4 @@
 export interface Expense {
-  sNo: number;
   category: string;
   date: string;
   price: number;
