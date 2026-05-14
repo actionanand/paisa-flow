@@ -14,7 +14,7 @@ import { NgOptimizedImage } from '@angular/common';
         title="Click to view fullscreen"
       >
         <img
-          ngSrc="/your_future.webp"
+          ngSrc="your_future.webp"
           alt="Your Future is created by what you do TODAY"
           width="900"
           height="600"
@@ -37,7 +37,7 @@ import { NgOptimizedImage } from '@angular/common';
       >
         <button class="close-btn" (click)="close()" aria-label="Close fullscreen">✕</button>
         <img
-          src="/your_future.webp"
+          src="your_future.webp"
           alt="Your Future is created by what you do TODAY"
           class="fullscreen-img"
         />
