@@ -1,5 +1,35 @@
 [
   {
+    "category": "Fuel",
+    "date": "2026-06-04",
+    "price": 99
+  },
+  {
+    "category": "Non veg",
+    "date": "2026-06-04",
+    "price": 99
+  },
+  {
+    "category": "Snacks",
+    "date": "2026-06-04",
+    "price": 59
+  },
+  {
+    "category": "Other Expenses",
+    "date": "2026-06-04",
+    "price": 69
+  },
+  {
+    "category": "Travel",
+    "date": "2026-06-04",
+    "price": 69
+  },
+  {
+    "category": "Utility",
+    "date": "2026-06-04",
+    "price": 69
+  },
+  {
     "category": "Food",
     "date": "2026-05-13",
     "price": 284
