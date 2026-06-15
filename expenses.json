@@ -1,5 +1,10 @@
 [
   {
+    "category": "Fruits",
+    "date": "2026-06-15",
+    "price": 99
+  },
+  {
     "category": "Snacks",
     "date": "2026-06-05",
     "price": 18
