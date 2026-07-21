@@ -1,5 +1,30 @@
 [
   {
+    "category": "Snacks",
+    "date": "2026-07-21",
+    "price": 18
+  },
+  {
+    "category": "Other Expenses",
+    "date": "2026-07-21",
+    "price": 25
+  },
+  {
+    "category": "Travel",
+    "date": "2026-07-21",
+    "price": 284
+  },
+  {
+    "category": "Snacks",
+    "date": "2026-07-21",
+    "price": 9
+  },
+  {
+    "category": "Groceries",
+    "date": "2026-07-21",
+    "price": 59
+  },
+  {
     "category": "Travel",
     "date": "2026-06-18",
     "price": 132
