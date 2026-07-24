@@ -1,5 +1,20 @@
 [
   {
+    "category": "Other Expenses",
+    "date": "2026-07-22",
+    "price": 69
+  },
+  {
+    "category": "Non veg",
+    "date": "2026-07-22",
+    "price": 569
+  },
+  {
+    "category": "Snacks",
+    "date": "2026-07-22",
+    "price": 69
+  },
+  {
     "category": "Snacks",
     "date": "2026-07-21",
     "price": 18
